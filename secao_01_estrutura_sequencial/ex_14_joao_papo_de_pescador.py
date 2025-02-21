@@ -24,5 +24,14 @@ Mostrar o peso e multa com duas casas decimais
 """
 
 
-def calcular_peso_excedente_e_multa():
-    """Escreva aqui em baixo a sua solução"""
+def calcular_peso_excedente_e_multa() -> None:
+    COTA_REGIAO = 50
+    MULTA_POR_KG = 4.00
+
+    peso_peixe = float(input("Peso do peixe: "))
+
+    var = peso_peixe - COTA_REGIAO
+    multa = var * MULTA_POR_KG if var > 0 else 0
+
+    print(f"O peso excedente de peixes é de {var:.2f} kg")
+    print(f"Por isso, a multa é de R$ {multa:.2f}")

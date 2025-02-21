@@ -15,5 +15,8 @@ Faça um Programa que converta metros para centímetros.
 """
 
 
-def converter_metros_para_centimetros():
-    """Escreva aqui em baixo a sua solução"""
+def converter_metros_para_centimetros() -> None:
+    medida_em_metros = float(input("Insira o tamaho e metros: "))
+    medida_em_cm = medida_em_metros * 100
+
+    print(f"Transformando para centímetros dá {str(medida_em_cm)} cm")

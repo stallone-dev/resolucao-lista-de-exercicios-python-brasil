@@ -17,5 +17,9 @@ Mostrar apenas valor inteiro da temperatura
 """
 
 
-def transformar_para_celsius():
-    """Escreva aqui em baixo a sua solução"""
+def transformar_para_celsius() -> None:
+    temperatura_fahrenheit = float(input("Temperatura em ºf: "))
+
+    temperatura_celcius = 5 * ((temperatura_fahrenheit - 32) / 9)
+
+    print(f"Essa temperatura é de {temperatura_celcius:.0f} Celsius")

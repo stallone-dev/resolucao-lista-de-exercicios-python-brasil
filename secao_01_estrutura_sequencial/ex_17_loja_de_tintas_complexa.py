@@ -27,6 +27,46 @@ Acrescente 10% de folga e sempre arredonde os valores para cima, isto é, consid
 
 """
 
+import math
 
-def calcular_latas_e_preco_de_tinta():
-    """Escreva aqui em baixo a sua solução"""
+
+def calcular_latas_e_preco_de_tinta() -> None:
+    M2_POR_LITRO = 6.0
+
+    VOLUME_LATA = 18.0
+    PRECO_LATA = 80.0
+
+    VOLUME_GALAO = 3.6
+    PRECO_GALAO = 25.0
+
+    MARGEM_ERRO = 0.1
+
+    area_a_pintar = math.ceil(
+        float(input("Área a ser pintada: ")) * (1.0 + MARGEM_ERRO)
+    )
+
+    litros_necessarios = area_a_pintar / M2_POR_LITRO
+
+    rendimento_lata = VOLUME_LATA * M2_POR_LITRO
+    rendimento_galao = VOLUME_GALAO * M2_POR_LITRO
+
+    qnt_latas_necessarias = math.ceil(area_a_pintar / rendimento_lata)
+    qnt_galoes_necessarios = math.ceil(area_a_pintar / rendimento_galao)
+
+    custo_latas = qnt_latas_necessarias * PRECO_LATA
+    custo_galoes = qnt_galoes_necessarios * PRECO_GALAO
+
+    equilibrio_lata = math.floor(area_a_pintar / rendimento_lata)
+    equilibrio_galao = math.ceil((area_a_pintar % rendimento_lata) / rendimento_galao)
+    custo_equilibrio = equilibrio_lata * PRECO_LATA + equilibrio_galao * PRECO_GALAO
+
+    print(f"Você deve comprar {litros_necessarios:.0f} litros de tinta.")
+    print(
+        f"Você pode comprar {qnt_latas_necessarias:.0f} lata(s) de 18 litros a um custo de R$ {custo_latas:.0f}. Vão sobrar {(qnt_latas_necessarias * VOLUME_LATA - litros_necessarios):.1f} litro(s) de tinta."
+    )
+    print(
+        f"Você pode comprar {qnt_galoes_necessarios:.0f} lata(s) de 3.6 litros a um custo de R$ {custo_galoes:.0f}. Vão sobrar {(qnt_galoes_necessarios * VOLUME_GALAO - litros_necessarios):.1f} litro(s) de tinta."
+    )
+    print(
+        f"Para menor custo, você pode comprar {equilibrio_lata:.0f} lata(s) de 18 litros e {equilibrio_galao:.0f} galão(ões) de 3.6 litros a um custo de R$ {custo_equilibrio:.0f}. Vão sobrar {(equilibrio_lata * VOLUME_LATA + equilibrio_galao * VOLUME_GALAO - litros_necessarios):.1f} litro(s) de tinta."
+    )

@@ -20,7 +20,15 @@ Faça um Programa que peça 2 números inteiros e um número real. Calcule e mos
 """
 
 
-def calcular_formulas():
-    """Escreva aqui em baixo a sua solução"""
+def calcular_formulas() -> None:
+    num_1 = int(input("Num 1: "))
+    num_2 = int(input("Num 2: "))
+    num_3 = float(input("Num 3: "))
 
+    calc_1 = (num_2 * 2) * (num_1 / 2)
+    calc_2 = (num_1 * 3) + num_3
+    calc_3 = num_3 ** 3
 
+    print(f"O produto do dobro do primeiro com metade do segundo é {calc_1:.2f}")
+    print(f"A soma do triplo do primeiro com o terceiro é {calc_2:.2f}")
+    print(f"O terceiro elevado ao cubo é {calc_3:.2f}")

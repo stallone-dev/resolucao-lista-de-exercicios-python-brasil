@@ -19,5 +19,13 @@ Obs: 0 <= nota <= 10
 """
 
 
-def notas_parciais(nota_1, nota_2):
+def notas_parciais(nota_1: int, nota_2: int) -> str:
     """Escreva aqui em baixo a sua solução"""
+    result = (nota_1 + nota_2) / 2
+    return (
+        "Reprovado"
+        if result < 7
+        else "Aprovado com Distinção"
+        if result == 10
+        else "Aprovado"
+    )

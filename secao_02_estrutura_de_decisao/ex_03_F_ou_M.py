@@ -16,5 +16,12 @@ Retorne: F - Feminino ou M - Masculino. Para quaisquer outros valores, retorne S
 """
 
 
-def f_ou_m(sexo):
+def f_ou_m(sexo: str) -> str:
     """Escreva aqui em baixo a sua solução"""
+    return (
+        "F - Feminino"
+        if sexo == "F"
+        else "M - Masculino"
+        if sexo == "M"
+        else "Sexo inválido"
+    )

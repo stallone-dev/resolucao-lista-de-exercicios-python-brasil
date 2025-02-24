@@ -15,5 +15,5 @@ Faça um Programa que peça dois números e imprima o maior deles.
 """
 
 
-def maior_de_dois_numeros(x, y):
-    """Escreva aqui em baixo a sua solução"""
+def maior_de_dois_numeros(x: int, y: int) -> int:
+    return x if x > y else y

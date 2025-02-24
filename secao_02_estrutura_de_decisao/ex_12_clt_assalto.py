@@ -51,5 +51,39 @@ até R$ 99999,99
 """
 
 
-def calcular_salario_liquido(valor_hora: float, horas_trabalhadas: int):
-    """Escreva aqui em baixo a sua solução"""
+def calcular_salario_liquido(valor_hora: float, horas_trabalhadas: int) -> None:
+    salario_bruto = valor_hora * horas_trabalhadas
+
+    percentual_ir = calcular_percentual_imposto_de_renda(salario_bruto)
+    percentual_fgts = 0.11
+    percentual_inss = 0.1
+    percentual_sindicato = 0.03
+
+    valor_ir = salario_bruto * percentual_ir
+    valor_fgts = salario_bruto * percentual_fgts
+    valor_inss = salario_bruto * percentual_inss
+    valor_sincitado = salario_bruto * percentual_sindicato
+    desconto_total = sum([valor_ir, valor_inss, valor_sincitado])
+
+    salario_liquido = salario_bruto - desconto_total
+
+    print(
+        f" Salário Bruto: (R$ {valor_hora:.2f} * {horas_trabalhadas:.0f}) : R$ {salario_bruto:5.2f}"
+    )
+    print(f"(-) IR ({(percentual_ir * 100):.0f}%) : R$ {valor_ir:>5.2f}")
+    print(f"(-) INSS (10%) : R$ {valor_inss:5.2f}")
+    print(f"(-) Sindicato (3%) : R$ {valor_sincitado:5.2f}")
+    print(f"FGTS (11%) : R$ {valor_fgts:5.2f}")
+    print(f"Total de descontos : R$ {desconto_total:5.2f}")
+    print(f"Salário Liquido : R$ {salario_liquido:5.2f}")
+
+
+def calcular_percentual_imposto_de_renda(salario: float) -> float:
+    if salario > 2500:
+        return 0.2
+    elif salario > 1500:
+        return 0.1
+    elif salario > 900:
+        return 0.05
+    else:
+        return 0

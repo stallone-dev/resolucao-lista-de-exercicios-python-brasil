@@ -14,6 +14,12 @@ Faça um Programa que verifique se uma letra digitada é vogal ou consoante.
     'vogal'
 """
 
+from typing import Final
 
-def vogal_ou_consoante(letra):
+
+VOGAIS: Final[tuple] = ("A", "E", "I", "O", "U")
+
+
+def vogal_ou_consoante(letra: str) -> str:
     """Escreva aqui em baixo a sua solução"""
+    return "vogal" if letra.upper() in VOGAIS else "consoante"

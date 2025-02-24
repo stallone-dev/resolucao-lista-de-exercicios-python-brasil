@@ -16,5 +16,13 @@ Faça um Programa que leia três números e mostre-os em ordem decrescente.
 """
 
 
-def ordenar_decrescente(x, y, z):
+def ordenar_decrescente(x: float, y: float, z: float) -> None:
     """Escreva aqui em baixo a sua solução"""
+    sort_list = sorted(list([x, y, z]), reverse=True)
+    result = ""
+    for index, item in enumerate(sort_list):
+        if index < sort_list.__len__() - 1:
+            result += f"{item}, "
+        else:
+            result += f"{item}"
+    print(result)
